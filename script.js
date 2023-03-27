@@ -1,17 +1,17 @@
-const display = document.getElementById("display");
+let display = document.getElementById('display');
 
-function clearDisplay() {
-  display.value = "0";
+function addToDisplay(value) {
+	display.value += value;
 }
 
-function addValue(value) {
-  if (display.value === "0") {
-    display.value = value;
-  } else {
-    display.value += value;
-  }
+function clearDisplay() {
+	display.value = '';
 }
 
 function calculate() {
-  display.value = eval(display.value);
+	try {
+		display.value = eval(display.value);
+	} catch (error) {
+		display.value = 'Error';
+	}
 }
